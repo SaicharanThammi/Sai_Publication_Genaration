@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBLP and Google Scholar Publications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #authorForm, #sortForm, #searchTitleForm, #mergeForm {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #publications {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li strong {
+            color: #007bff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DBLP and Google Scholar Publications</h1>
+        <form id="authorForm">
+            <label for="authorInput">Enter Author Name or DBLP ID:</label>
+            <input type="text" id="authorInput" name="authorInput" required>
+            <div>
+                <input type="radio" id="searchById" name="searchType" value="id" checked>
+                <label for="searchById">Search by ID</label>
+                <input type="radio" id="searchByName" name="searchType" value="name">
+                <label for="searchByName">Search by Name</label>
+            </div>
+            <button type="submit">Fetch Publications</button>
+        </form>
+
+        <form id="mergeForm">
+            <label for="googleScholarId">Enter Google Scholar ID:</label>
+            <input type="text" id="googleScholarId" name="googleScholarId">
+            <label for="dblpId">Enter DBLP ID:</label>
+            <input type="text" id="dblpId" name="dblpId">
+            <button type="button" id="mergeButton">Fetch and Merge Publications</button>
+        </form>
+
+        <form id="sortForm">
+            <label for="sortOptions">Sort by:</label>
+            <select id="sortOptions" name="sortOptions">
+                <option value="yearAsc">Year (Ascending)</option>
+                <option value="yearDesc">Year (Descending)</option>
+                <option value="titleAsc">Title (A-Z)</option>
+                <option value="titleDesc">Title (Z-A)</option>
+                <option value="venueAsc">Venue (A-Z)</option>
+                <option value="venueDesc">Venue (Z-A)</option>
+            </select>
+        </form>
+
+        <form id="searchTitleForm">
+            <label for="searchTitleInput">Search in Titles:</label>
+            <input type="text" id="searchTitleInput" name="searchTitleInput" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="publications"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
