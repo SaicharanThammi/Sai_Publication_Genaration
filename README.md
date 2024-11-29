@@ -29,7 +29,7 @@ This project provides a backend service (`server.js`) to connect with these APIs
 
 1. Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/yourusername/research-publications-fetcher.git
+    git clone https://github.com/SaicharanThammi/Sai_Publication_Genaration/
     cd research-publications-fetcher
     ```
 
